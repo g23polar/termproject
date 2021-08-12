@@ -1,6 +1,6 @@
 // TODO : add, delete
-import {Component, Input, OnInit} from '@angular/core';
 // import {PARecord} from "../_models/PARecord";
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-review',

@@ -6,5 +6,6 @@ mongoose.connect(process.env.MONGODB_URI || config.connectionString, { useCreate
 module.exports = {
     User: require('../models/user.model'),
     PArecord: require('../models/parecord.model'),
-    RankCard: require('../models/rankcard.model')
+    RankCard: require('../models/rankcard.model'),
+    Review: require('../models/review.model')
 };

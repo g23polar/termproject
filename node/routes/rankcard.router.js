@@ -5,7 +5,6 @@ const Role = require('../_helpers/role');
 const authorize = require('../_helpers/authorize');
 
 
-// TODO : get rankings
 router.get('/getranks', rankcardController.getRanks);
 
 module.exports = router;
