@@ -17,13 +17,14 @@
 
 .review-card {
   display: grid;
-  grid-template-columns: 10% 5% 40% 40% 5%;
+  grid-template-columns: 15% 5% 75% 5%;
   grid-template-rows: 60px;
   grid-template-areas:
-    "avatar header . . menu"
-    "rating date . . ."
+    "avatar header . menu"
+    "rating date . ."
 
-    "review review review review review";
+
+    "review review review review";
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
@@ -35,6 +36,8 @@
   grid-area: date;
 }
 .rating {
+  display: flex;
+  flex-direction: row;
   grid-area: rating;
 }
 
@@ -48,4 +51,10 @@
 
 .review {
   grid-area: review
+}
+
+.star {
+  margin: 0px 0px;
+  display: inline-block;
+  cursor: pointer;
 }
