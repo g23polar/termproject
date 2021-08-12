@@ -1,0 +1,40 @@
+<mat-card class="review-card">
+
+  <div class="avatar">
+<!--    TODO: avatar image-->
+<!--  <img>-->
+  </div>
+
+  <div class="header">
+    <b>Username</b>
+    <p>Location</p>
+  </div>
+
+  <div class="rating">
+    
+
+  </div>
+
+  <div class="review">
+
+
+  </div>
+
+  <div class="menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/edit">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+<!--      TODO: delete-->
+      <button mat-menu-item (click)="delete()">
+        <mat-icon>delete</mat-icon>
+        <span>Delete</span>
+      </button>
+    </mat-menu>
+
+  </div>
+</mat-card>

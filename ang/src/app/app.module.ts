@@ -20,6 +20,7 @@ import { RankingsComponent } from './rankings/rankings.component';
 import {AvatarModule} from "ngx-avatar";
 import { CreateComponent } from './create/create.component';
 import { RankcardComponent } from './rankcard/rankcard.component';
+import { ReviewComponent } from './review/review.component';
 // import { CreateComponent } from './create/create.component';
 
 
@@ -36,7 +37,8 @@ import { RankcardComponent } from './rankcard/rankcard.component';
     RankingsComponent,
     CreateComponent,
     CreateComponent,
-    RankcardComponent
+    RankcardComponent,
+    ReviewComponent
   ],
     imports: [
         BrowserModule,
