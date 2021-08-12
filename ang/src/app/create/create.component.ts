@@ -1,3 +1,4 @@
+// TODO
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 
@@ -8,7 +9,7 @@ import {User} from '../_models/user';
 import {AuthService} from '../_services/auth.service';
 import {MatSliderChange} from '@angular/material/slider';
 import {PArecordService} from '../_services/parecord.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-create',

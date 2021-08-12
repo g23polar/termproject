@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
     this.loadAllPArecords();
       }
 
+  //    TODO add searching functionality
+
 
 
   loadAllPArecords() {
