@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+// import {PARecord} from "../_models/PARecord";
 
 @Component({
   selector: 'app-review',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
+  // @Input() parecord: PARecord;
 
   constructor() { }
 
