@@ -1,0 +1,18 @@
+.course-list-container{
+  display: flex;
+  flex-flow: row wrap;
+
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+  background-color: #ffffff;
+}
+
+
+.card-item{
+  flex: 1;
+  padding: 3px 3px 3px 3px;
+  width:300px;
+}
+
+

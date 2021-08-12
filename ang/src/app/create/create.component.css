@@ -1,0 +1,11 @@
+.card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+/*.button {*/
+/*  justify-content: right;*/
+/*  width: 25%;*/
+/*}*/
