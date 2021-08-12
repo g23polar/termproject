@@ -44,7 +44,7 @@ export class ReviewComponent implements OnInit {
     this.rating.filter((star) => {
       console.log('star', star.id, star.color);
       if (star.id <= value) {
-        star.color = 'gold';
+        star.color = 'orange';
       } else {
         star.color = 'gray';
       }
