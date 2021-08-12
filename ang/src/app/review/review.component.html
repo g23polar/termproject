@@ -7,11 +7,10 @@
   </div>
 
   <div class="rating">
-    <span class="fa fa-star checked">★</span>
-    <span class="fa fa-star checked">★</span>
-    <span class="fa fa-star checked">★</span>
-    <span class="fa fa-star">★</span>
-    <span class="fa fa-star">★</span>
+    <div *ngFor="let star of rating"
+    (click)="selectRating(star.id)">
+      <mat-icon [ngStyle]="{'color':star.color}">star</mat-icon>
+    </div>
   </div>
 
   <div class="date">8/12/2021</div>
