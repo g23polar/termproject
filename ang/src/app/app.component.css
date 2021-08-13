@@ -1,3 +1,35 @@
-.my-avatar /deep/ .avatar-content {
-  background-color : red !important;
+\.active-pink-2 input[type=search]:focus:not([readonly]) {
+  border-bottom: 1px solid #f48fb1;
+  box-shadow: 0 1px 0 0 #f48fb1;
+  align-self: center;
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
+  display: grid;
+
 }
+
+.active-pink input[type=search] {
+  border-bottom: 1px solid #f48fb1;
+  box-shadow: 0 1px 0 0 #f48fb1;
+  align-self: center;
+  text-align: center;
+
+  justify-content: center;
+  display: grid;
+  align-items: center;
+}
+
+.input-card {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-rows: 50px 50px;
+  width: 400px;
+  height: 100px;
+}
+
+.body { background-color: darkcyan !important; }
+

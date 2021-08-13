@@ -1,21 +1,23 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {AuthService} from './_services/auth.service';
 import {Router} from '@angular/router';
 import {User} from './_models/user';
 import {Role} from './_models/role';
 import {AvatarModule} from "ngx-avatar";
+import {ElementRef} from "@angular/core";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'HW3Angular';
   currentUser: User;
   first = 'G';
   last = 'N';
   initials = 'fmerlkf fekrmlf';
+
 
   constructor(  private router: Router,
                 private authService: AuthService
@@ -66,10 +68,18 @@ export class AppComponent {
     return this.initials
   }
 
+
+
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  goToHome(){
+    this.router.navigate(['']);
+  }
+
+
 
 
 
