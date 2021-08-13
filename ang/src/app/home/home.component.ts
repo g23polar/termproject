@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-import {Component, OnDestroy, OnInit, Output} from '@angular/core';
-import {first, mergeMap} from 'rxjs/operators';
-=======
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { first, mergeMap } from "rxjs/operators";
->>>>>>> master
 
 import { NotificationService } from "../_services/notification.service";
 import { UserService } from "../_services/user.service";
 import { Router } from "@angular/router";
 import { User } from "../_models/user";
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 import {NotificationService} from '../_services/notification.service';
 import {PARecord} from '../_models/PARecord';
@@ -26,9 +22,10 @@ import {ReviewService} from "../_services/review.service";
             styleUrls: ['home.component.css']})
 =======
 =======
+=======
+>>>>>>> 36553f4a0a9292c2427ccf6e7407ab07229a29ba
 @Component({
   templateUrl: "home.component.html",
->>>>>>> master
 
   styleUrls: ["home.component.css"],
 })
@@ -73,29 +70,12 @@ export class HomeComponent implements OnInit {
   //       this.notifService.showNotif(error); });
   // }
 
-<<<<<<< HEAD
-  deletePARecord(date) {
-    // this.userService.deleteActivity(date);
-    this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
-                                                                       this.loadAllPArecords();
-    });
-  }
-  // @ts-ignore
-    @Output() searchcriteria = new EventEmitter<String>();
-  // searchword: any;
-  searchword = "testword"
-  searchThis() {
-  // @ts-ignore
-  this.searchcriteria.emit(this.searchword)
-  }
-=======
   // deletePARecord(date) {
   //   // this.userService.deleteActivity(date);
   //   this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
   //                                                                      this.loadAllPArecords();
   //   });
   // }
->>>>>>> master
 
   navToCreate() {
     this.router.navigate(["/create"]);
