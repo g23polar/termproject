@@ -1,22 +1,17 @@
-<mat-toolbar *ngIf="isUser">
-    <!-- TODO: Get first and last initials -->
-    <!--  <ngx-avatar> value={{first}} [round]="true">-->
-    <!--  </ngx-avatar>-->
-    <ngx-avatar size="40" [name]="getInitials"></ngx-avatar>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="circle" [ngStyle]="{ 'background-color': circleColor }">
+            <div class="initials">
+                {{getInitials}}
+            </div>
+        </div>
 
-    <!--  <ngx-avatar> value="GN" [round]="true">-->
-    <!--  </ngx-avatar>-->
-    <button mat-button routerLink="/">My Progress</button>
-
-
-
-    <!--  <button mat-button routerLink="/admin" *ngIf="isAdmin">Users</button>-->
-
-    <!--  <button mat-button routerLink="/rankings">Rankings</button>-->
-    <!--  TODOc: add a button that will show the 'settings' component-->
-
-    <button mat-button (click)="logout()">Logout </button>
+        <span class="flexExpand"></span>
+        <div>
+            <button mat-button (click)="logout()">Logout </button>
+        </div>
+    </mat-toolbar-row>
 </mat-toolbar>
+<router-outlet>
 
-
-<router-outlet></router-outlet>
+</router-outlet>
