@@ -1,11 +1,32 @@
 .card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
 }
 
+.rating {
+    display: flex;
+    flex-direction: row;
+    grid-area: rating;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /*.button {*/
+
+
 /*  justify-content: right;*/
+
+
 /*  width: 25%;*/
+
+
 /*}*/

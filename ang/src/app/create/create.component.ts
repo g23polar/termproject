@@ -17,19 +17,56 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class CreateComponent implements OnInit {
 
-  calControl = new FormControl('', [Validators.max(6000), Validators.min(1000)]);
-  minControl = new FormControl('', [Validators.max(360), Validators.min(15)]);
-  dateControl: FormControl;
+  
   date: Date;
   user: User;
-
-  activities = ['Running', 'Walking', 'Biking'];
 
   minutes: number;
   calories: number;
 
-  activity: string;
+  description: string;
+  location: string; 
+  
+
   edit: boolean;
+
+  currentRating = 0;
+  rating = [
+    {
+      id: 1,
+      color: 'gray'
+    },
+    {
+      id: 2,
+      color: 'gray'
+    },
+    {
+      id: 3,
+      color: 'gray'
+    },
+    {
+      id: 4,
+      color: 'gray'
+    },
+    {
+      id: 5,
+      color: 'gray'
+    }
+  ];
+
+  selectRating(value) {
+    console.log('selectRating', value);
+    this.rating.filter((star) => {
+      console.log('star', star.id, star.color);
+      if (star.id <= value) {
+        star.color = 'orange';
+      } else {
+        star.color = 'gray';
+      }
+      return star;
+    });
+    this.currentRating = value;
+  }
 
 
   constructor(private authService: AuthService,
@@ -42,21 +79,16 @@ export class CreateComponent implements OnInit {
     this.authService.currentUser.pipe(first()).subscribe((user) =>{
       this.user = user;
     });
-    this.minutes = Number.parseInt(this.route.snapshot.paramMap.get("mins"));
-    this.calories = Number.parseInt(this.route.snapshot.paramMap.get("cals"));
+   
 
     if (this.route.snapshot.paramMap.get("date") != null) {
       //{ new Date(this.route.snapshot.paramMap.get("date")),
       // disabled: true }
       this.edit = true;
-      this.date = new Date(this.route.snapshot.paramMap.get("date"));
-      this.dateControl = new FormControl({
-        value: this.route.snapshot.paramMap.get("date"),
-        disabled: true,
-      });
+      
+      
     }
 
-    this.activity = this.activities[this.route.snapshot.paramMap.get("patype")];
   }
 
   save() {
@@ -68,31 +100,17 @@ export class CreateComponent implements OnInit {
     this.date = e.value;
   }
 
-  changeCalsFromSlider(e: MatSliderChange) {
-    this.calories = e.value;
-  }
-
-  changeMinsFromSlider(e: MatSliderChange) {
-    this.minutes = e.value;
-  }
-
   updateCals(e) {
     this.calories = e.target.value;
   }
 
-  updateMins(e) {
-    this.minutes = e.target.value;
+  updateLocation(e) {
+    this.location = e.target.value;
   }
 
-  getActivity(): number {
-    if (this.activity === 'Running') {
-      return 0;
-    }
-    else if (this.activity === 'Walking') {
-      return 1;
-    }
-    else {
-      return 2;
-    }
+  updateDesription(e) { 
+    this.description = e.target.value;
   }
+
+
 }

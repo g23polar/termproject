@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mat-toolbar *ngIf="isUser">
     <!-- TODO: Get first and last initials -->
       <ngx-avatar> value={{first}} [round]="true">
@@ -19,10 +20,30 @@
     <!--  TODOc: add a button that will show the 'settings' component-->
 
     <button mat-button (click)="logout()">Logout </button>
-</mat-toolbar>
+=======
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="circle" [ngStyle]="{ 'background-color': circleColor }">
+            <div class="initials">
+                {{getInitials}}
+            </div>
+        </div>
 
+        <span class="flexExpand"></span>
+        <div>
+            <button mat-button (click)="logout()">Logout </button>
+        </div>
+    </mat-toolbar-row>
+>>>>>>> ab3f6ab626b6824cade5742915e7951b260140bf
+</mat-toolbar>
+<router-outlet>
+
+<<<<<<< HEAD
 <!--<body *ngIf="isUser" style="background-color:darkcyan;">-->
 
 
 
 <router-outlet></router-outlet>
+=======
+</router-outlet>
+>>>>>>> ab3f6ab626b6824cade5742915e7951b260140bf

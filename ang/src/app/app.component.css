@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \.active-pink-2 input[type=search]:focus:not([readonly]) {
   border-bottom: 1px solid #f48fb1;
   box-shadow: 0 1px 0 0 #f48fb1;
@@ -33,3 +34,28 @@
 
 .body { background-color: darkcyan !important; }
 
+=======
+.my-avatar /deep/ .avatar-content {
+    background-color: red !important;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initials {
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 19px;
+    letter-spacing: 0.2625px;
+}
+>>>>>>> ab3f6ab626b6824cade5742915e7951b260140bf
