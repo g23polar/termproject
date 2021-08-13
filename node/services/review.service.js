@@ -28,8 +28,6 @@ async function deleteReview(username, date) {
 }
 
 async function addReview(review, username) {
-
-
     // validate
     if (await Review.findOne({ createdBy: username, createdDate: review.createdDate })) {
         throw 'Review created by"' + review.createdBy + " on " + review.createdDate + '" already exists';

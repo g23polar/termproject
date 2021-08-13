@@ -17,7 +17,6 @@ import {ErrorInterceptor} from './interceptors/error.interceptor';
 import {AvatarModule} from "ngx-avatar";
 import { CreateComponent } from './create/create.component';
 import { ReviewComponent } from './review/review.component';
-// import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
