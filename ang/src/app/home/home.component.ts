@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {first, mergeMap} from 'rxjs/operators';
 
 
@@ -8,6 +8,7 @@ import {PArecordService} from '../_services/parecord.service';
 import {UserService} from '../_services/user.service';
 import {Router} from "@angular/router";
 import {User} from "../_models/user";
+import {from} from "rxjs";
 
 @Component({ templateUrl: 'home.component.html' ,
 
@@ -67,7 +68,14 @@ export class HomeComponent implements OnInit {
                                                                        this.loadAllPArecords();
     });
   }
-
+  // @ts-ignore
+    @Output() searchcriteria = new EventEmitter<String>();
+  // searchword: any;
+  searchword = "testword"
+  searchThis() {
+  // @ts-ignore
+  this.searchcriteria.emit(this.searchword)
+  }
 
   navToCreate(){
     this.router.navigate(['/create']);

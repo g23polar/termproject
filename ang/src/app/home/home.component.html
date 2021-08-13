@@ -2,7 +2,10 @@
 
 <!--  TODO add searchbar-->
 <!--  TODO change parecords to reviews-->
-  <parecord-component class="card-item" *ngFor="let parecord of parecords" [parecord]="parecord" (deleteEvent) = "deletePARecord($event)"></parecord-component>
+
+  <input matInput type="text"  [(ngModel)]="searchword"(input)="searchThis()">
+
+  <!--  <parecord-component class="card-item" *ngFor="let parecord of parecords" [parecord]="parecord" (deleteEvent) = "deletePARecord($event)"></parecord-component>-->
 
 <!--<div *ngFor="let parecord of parecords">{{parecord}}</div>-->
 
