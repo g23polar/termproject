@@ -8,7 +8,6 @@ import {User} from '../_models/user';
 
 import {AuthService} from '../_services/auth.service';
 import {MatSliderChange} from '@angular/material/slider';
-import {PArecordService} from '../_services/parecord.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -33,8 +32,7 @@ export class CreateComponent implements OnInit {
   edit: boolean;
 
 
-  constructor(private parecordService: PArecordService,
-              private authService: AuthService,
+  constructor(private authService: AuthService,
               private notifService: NotificationService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -62,22 +60,6 @@ export class CreateComponent implements OnInit {
   }
 
   save() {
-
-    this.parecordService.add( {
-        minutes: this.minutes,
-        createdDate:this.date,
-        activityType: this.getActivity(),
-        calories: this.calories,
-      }
-    ).pipe(first()).subscribe(() => {
-        if(this.edit){
-          this.notifService.showNotif('Physical activity updated', 'OK');
-        }
-        else{
-          this.notifService.showNotif('Physical activity added', 'OK');
-        }
-      }
-      , error => { this.notifService.showNotif(error); });
     this.router.navigate(['/']);
   }
 

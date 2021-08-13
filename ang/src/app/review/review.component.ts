@@ -1,5 +1,4 @@
 // TODO : add, delete
-// import {PARecord} from "../_models/PARecord";
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({

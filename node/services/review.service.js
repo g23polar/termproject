@@ -19,11 +19,11 @@ module.exports = {
  Hint3: look at the class material.
  */
 
-async function getAllReviews(){
+async function getAllReviews() {
     return Review.find().populate({ path: 'createdBy', select: 'username' });
 }
 
-async function deleteReview(username, date){
+async function deleteReview(username, date) {
     return Review.deleteOne({ "createdDate": date, "createdBy": username });
 }
 
@@ -31,14 +31,13 @@ async function addReview(review, username) {
 
 
     // validate
-    if (await Review.findOne({ createdBy: username, createdDate: review.createdDate  })) {
-        throw 'Review created by"' + review.createdBy +" on "+ review.createdDate +'" already exists';
-    }
-    else if(!username){
+    if (await Review.findOne({ createdBy: username, createdDate: review.createdDate })) {
+        throw 'Review created by"' + review.createdBy + " on " + review.createdDate + '" already exists';
+    } else if (!username) {
         throw 'Error with the user submitting the request. User information missing. Malformed request.';
     }
     //populate missing fields in the parecord object
-    let newreview= review;
+    let newreview = review;
     review.createdBy = username;
 
     dbrecord = new Review(newreview);
