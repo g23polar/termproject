@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {first, mergeMap} from 'rxjs/operators';
+=======
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { first, mergeMap } from "rxjs/operators";
+>>>>>>> master
 
+import { NotificationService } from "../_services/notification.service";
+import { UserService } from "../_services/user.service";
+import { Router } from "@angular/router";
+import { User } from "../_models/user";
 
+<<<<<<< HEAD
 import {NotificationService} from '../_services/notification.service';
 import {PARecord} from '../_models/PARecord';
 import {PArecordService} from '../_services/parecord.service';
@@ -9,44 +19,37 @@ import {UserService} from '../_services/user.service';
 import {Router} from "@angular/router";
 import {User} from "../_models/user";
 import {from} from "rxjs";
+=======
+@Component({
+  templateUrl: "home.component.html",
+>>>>>>> master
 
-@Component({ templateUrl: 'home.component.html' ,
-
-  styleUrls: ['home.component.css']})
+  styleUrls: ["home.component.css"],
+})
 export class HomeComponent implements OnInit {
-
-
   homeUser: User;
 
-  parecords: PARecord[] = [];
-
-
   constructor(
-    private parecordservice: PArecordService,
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService
   ) {}
 
-  ngOnInit() {
-    this.loadAllPArecords();
-      }
+  ngOnInit() {}
 
   //    TODO add searching functionality
 
+  // loadAllPArecords() {
+  //   console.log('loadAllParecords()');
 
-
-  loadAllPArecords() {
-    console.log('loadAllParecords()');
-
-    this.parecordservice.getAll().subscribe(
-         parecords => {
-           this.parecords = parecords;
-           // this.homeUser = this.parecords[0].createdBy;
-         },
-        error => {
-            this.notifService.showNotif(error.toString(), 'warning'); });
-  }
+  //   this.parecordservice.getAll().subscribe(
+  //        parecords => {
+  //          this.parecords = parecords;
+  //          // this.homeUser = this.parecords[0].createdBy;
+  //        },
+  //       error => {
+  //           this.notifService.showNotif(error.toString(), 'warning'); });
+  // }
 
   /**
    * dont need this anymore,
@@ -62,6 +65,7 @@ export class HomeComponent implements OnInit {
   //       this.notifService.showNotif(error); });
   // }
 
+<<<<<<< HEAD
   deletePARecord(date) {
     // this.userService.deleteActivity(date);
     this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
@@ -76,9 +80,16 @@ export class HomeComponent implements OnInit {
   // @ts-ignore
   this.searchcriteria.emit(this.searchword)
   }
+=======
+  // deletePARecord(date) {
+  //   // this.userService.deleteActivity(date);
+  //   this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
+  //                                                                      this.loadAllPArecords();
+  //   });
+  // }
+>>>>>>> master
 
-  navToCreate(){
-    this.router.navigate(['/create']);
+  navToCreate() {
+    this.router.navigate(["/create"]);
   }
 }
-
