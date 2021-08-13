@@ -9,10 +9,10 @@ import {UserService} from '../_services/user.service';
 import {Router} from "@angular/router";
 import {User} from "../_models/user";
 import {from} from "rxjs";
+import {ReviewService} from "../_services/review.service";
 
 @Component({ templateUrl: 'home.component.html' ,
-
-  styleUrls: ['home.component.css']})
+            styleUrls: ['home.component.css']})
 export class HomeComponent implements OnInit {
 
 
@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
     private parecordservice: PArecordService,
     private router: Router,
     private notifService: NotificationService,
-    private userService: UserService
+    private userService: UserService,
+    private reviewService: ReviewService
   ) {}
 
   ngOnInit() {
