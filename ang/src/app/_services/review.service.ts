@@ -18,19 +18,6 @@ export class ReviewService {
   }
 
 
-
-
-
-  // addRandom() {
-  //   const randparecord = {
-  //     calories: Math.floor(Math.random() * 2500),
-  //     minutes: Math.floor(Math.random() * 180),
-  //     steps:  Math.floor(Math.random() * 25000),
-  //     activityType: Math.floor(Math.random() * 3)
-  //   };
-  //   return this.http.post(`http://localhost:3030/parecord/addreview`, randparecord);
-  // }
-
   add(data: Review) {
     const dataRecord = {
       location: data.location,

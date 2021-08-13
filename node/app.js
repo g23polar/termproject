@@ -21,12 +21,12 @@ app.use(cors());
 app.use(jwt());
 
 app.use('/user', require('./routes/user.router'));
-app.use('/parecord', require('./routes/parecord.router'));
+app.use('/review', require('./routes/review.router'));
 app.use(errorHandler);
 
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3030;
-app.listen(port, function () {
-  console.log('Server listening on port ' + port);
+app.listen(port, function() {
+    console.log('Server listening on port ' + port);
 });

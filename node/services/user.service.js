@@ -37,7 +37,7 @@ async function getAllUsers() {
 
 async function getByUsername(username) {
 
-    return await User.find({username:username});
+    return await User.find({ username: username });
 }
 
 async function addUser(userParam) {
@@ -45,8 +45,7 @@ async function addUser(userParam) {
     // validate
     if (await User.findOne({ username: userParam.username })) {
         throw 'Username "' + userParam.username + '" is already taken';
-    }
-    else  if (await User.findOne({ email: userParam.email })) {
+    } else if (await User.findOne({ email: userParam.email })) {
         throw 'Email "' + userParam.email + '" is already taken';
     }
 
@@ -64,19 +63,18 @@ async function addUser(userParam) {
 
 
 // TODOc: complete this function. It takes in calories and minute goal values in 'values' and saves it for a given userid (_id). Hint: use 'updateOne' from mongoose.
-async function setGoals(cal, min, name){
+async function setGoals(cal, min, name) {
     await User.updateOne({ "username": name }, { caloriegoal: cal }, { minutegoal: min });
     await User.updateOne({ "username": name }, { minutegoal: min });
 }
 
 
 // TODOc: complete this function. It should return calorie and minute goals for a given user.
-async function getGoals(username){
+async function getGoals(username) {
 
-    return await User.find({username: username});
+    return await User.find({ username: username });
     // return {
     //     minutegoal: user.minutegoal,
     //     caloriegoal: user.caloriegoal
     // };
 }
-
