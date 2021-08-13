@@ -2,50 +2,29 @@
 
 <div class="create">
 
-  <mat-card class="card">
+    <mat-card class="card">
 
-    <strong size="20">Add your activity!</strong>
+        <div>
 
-<!--    activity type field-->
-    <mat-form-field class="exercise-type-input">
-      <mat-label>Select activity type</mat-label>
-      <mat-select [(value)]="activity">
-        <mat-option *ngFor="let act of activities" [value]="act">{{act}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <input matInput value="{{location}}" (input)="updateLocation($event)">
+        </mat-form-field>
 
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput value="{{description}}" (input)="updateDesription($event)">
+        </mat-form-field>
 
-<!--    date  field-->
-    <mat-form-field class="date-input">
-      <mat-label>Select the date</mat-label>
-      <input matInput [matDatepicker]="picker" (dateChange)="newDate($event)">
+        <div class="rating">
+            <div *ngFor="let star of rating" (click)="selectRating(star.id)">
+                <mat-icon [ngStyle]="{'color':star.color}">star</mat-icon>
+            </div>
+        </div>
 
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+        <!--    save button -->
+        <button mat-flat-button class="button" (click)="save()">Save</button>
 
-<!--    minutes input -->
-    <mat-form-field class="minutes-input">
-      <mat-label>Minutes of exercise</mat-label>
-      <input matInput type="number" min="10" max="360" value="{{minutes}}" (input)="updateMins($event)" [formControl]="minControl">
-    </mat-form-field>
-
-
-<!--    minutes slider-->
-    <mat-slider thumbLabel min="15" max="360" step="5" value="{{minutes}}" (input)="changeMinsFromSlider($event)"></mat-slider>
-
-
-<!--    calories input-->
-    <mat-form-field class="calorie-input">
-      <mat-label>Calories burned</mat-label>
-      <input matInput type="number" min="1000" max="3000" value="{{calories}}" (input)="updateCals($event)" [formControl]="calControl">
-    </mat-form-field>
-
-<!--    calories slider-->
-    <mat-slider thumbLabel min="1000" max="3000" step="50" value="{{calories}}" (input)="changeCalsFromSlider($event)"></mat-slider>
-
-<!--    save button -->
-    <button mat-flat-button class="button" (click)="save()">Save</button>
-
-  </mat-card>
+    </mat-card>
 </div>
