@@ -29,14 +29,10 @@ export class ReviewComponent implements OnInit {
   ];
   ngOnInit(): void {
     this.selectRating(this.review.rating);
-    // this.review = new Review();
-    // this.review.description = 'This is a sample description. ';
-    // this.review.createdDate = new Date();
-    // this.review.location = 'Blacksburg';
-    // this.authService.currentUser.subscribe(user => {
-    //   this.review.createdBy = user;
-    //   this.initials = (user.firstName[0] + user.lastName[0]).toUpperCase();
-    // } );
+    this.authService.currentUser.subscribe(user => {
+      this.review.createdBy = user;
+      this.initials = (user.firstName[0] + user.lastName[0]).toUpperCase();
+    } );
   }
 
   delete(date) {
