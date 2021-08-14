@@ -9,7 +9,7 @@
         </div>
         <mat-form-field appearance="fill">
             <mat-label>Location</mat-label>
-            <input matInput value="{{location}}" (input)="updateLocation($event)">
+            <input matInput value="{{location}}" (input)="updateLocation($event)" [formControl]="locationCntrl">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
