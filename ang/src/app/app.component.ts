@@ -77,15 +77,10 @@ export class AppComponent{
     this.router.navigate(['/login']);
   }
 
-<<<<<<< HEAD
   goToHome(){
     this.router.navigate(['']);
   }
 
-
-=======
-  
->>>>>>> ab3f6ab626b6824cade5742915e7951b260140bf
 
 
 
