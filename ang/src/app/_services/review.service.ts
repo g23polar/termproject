@@ -13,8 +13,14 @@ import {Review} from '../_models/Review';
 export class ReviewService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
+  public places: string[];
+
   getAll() {
     return this.http.get<Review[]>(`http://localhost:3030/review/getreview`);
+  }
+
+  getPlaces() {
+    return this.http.get<string[]>(`http://localhost:3030/review/getplaces`);
   }
 
 

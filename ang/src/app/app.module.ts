@@ -17,6 +17,7 @@ import {ErrorInterceptor} from './interceptors/error.interceptor';
 import {AvatarModule} from "ngx-avatar";
 import { CreateComponent } from './create/create.component';
 import { ReviewComponent } from './review/review.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReviewComponent } from './review/review.component';
     RegisterComponent,
     CreateComponent,
     CreateComponent,
-    ReviewComponent
+    ReviewComponent,
+    SearchbarComponent
   ],
     imports: [
         BrowserModule,
