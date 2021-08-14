@@ -28,6 +28,8 @@
   width: 80%;
   min-width: 700px;
   margin-left: 10px;
+  align-self: center;
+  justify-self: center;
 }
 
 .date {
