@@ -2,20 +2,20 @@
 
 <div class="search">
 
-  <mat-card class="card">
+    <mat-card class="card">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Location</mat-label>
-      <input matInput value="{{query}}" [formControl]="SearchControl">
-<!--             (input)="search(query)">-->
-    </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <input (keyup.enter)="search(query)" matInput value="{{query}}" [formControl]="SearchControl">
+            <!--             (input)="search(query)">-->
+        </mat-form-field>
 
-    <!--    search button -->
-<!--    <button mat-flat-button class="button" (click)="search(query)" routerLink="/viewReviews">Search</button>-->
-    <button mdbBtn color="deep-purple" size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit" (click)="search(query)" routerLink="/viewReviews">Search</button>
+        <!--    search button -->
+        <!--    <button mat-flat-button class="button" (click)="search(query)" routerLink="/viewReviews">Search</button>-->
+        <button mdbBtn (keyup.enter)="search(query)" color="deep-purple" size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit" (click)="search(query)">Search</button>
 
 
-  </mat-card>
+    </mat-card>
 </div>
 
 
@@ -28,8 +28,7 @@
 
 
 <div class="but">
-  <button mat-flat-button color="primary" matTooltip="Add new review" (click)="navToCreate()">
+    <button mat-flat-button color="primary" matTooltip="Add new review" (click)="navToCreate()">
     <i class="material-icons">add</i>
   </button>
 </div>
-

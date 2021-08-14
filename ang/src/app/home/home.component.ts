@@ -3,12 +3,11 @@ import { first, mergeMap } from "rxjs/operators";
 
 import { NotificationService } from "../_services/notification.service";
 import { UserService } from "../_services/user.service";
-import { Router } from "@angular/router";
 import { User } from "../_models/user";
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ReviewService } from "../_services/review.service";
-
+import { ActivatedRoute, Router } from "@angular/router";
 
 
 import {from} from "rxjs";
@@ -43,8 +42,10 @@ export class HomeComponent implements OnInit {
     this.reviewService.getPlaces().subscribe(
       reviews => {
         this.allPlaces = reviews.filter(review => review === query);
+        this.router.navigate(['/viewReviews']);
       },
       error => {
+        this.router.navigate(['/viewReviews']);
         this.notifService.showNotif(error.toString(), 'error, home comp ts'); });
 
     // if(!found){
