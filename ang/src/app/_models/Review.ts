@@ -1,7 +1,5 @@
 // TODO
 
-
-import {PAType} from './PAType';
 import {User} from './user';
 
 export class Review {

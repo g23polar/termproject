@@ -13,7 +13,6 @@ import { ReviewService } from "../_services/review.service";
 
 import {from} from "rxjs";
 
-import {ReviewService} from "../_services/review.service";
 
 @Component({ templateUrl: 'home.component.html' ,
             styleUrls: ['home.component.css']})
@@ -38,62 +37,18 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService,
-<<<<<<< HEAD
-    private reviewService: ReviewService
-=======
     private reviewService: ReviewService 
->>>>>>> 0e102ae0fabd05c5188d8d072684d04f5a305d4f
   ) {}
-  search(query: string){
 
-<<<<<<< HEAD
-  }
-  ngOnInit() {}
-
-  //    TODO add searching functionality
-
-  // loadAllPArecords() {
-  //   console.log('loadAllParecords()');
-
-  //   this.parecordservice.getAll().subscribe(
-  //        parecords => {
-  //          this.parecords = parecords;
-  //          // this.homeUser = this.parecords[0].createdBy;
-  //        },
-  //       error => {
-  //           this.notifService.showNotif(error.toString(), 'warning'); });
-  // }
-
-  /**
-   * dont need this anymore,
-   * middleware for using random activity addition
-   */
-  // createPARecord() {
-  //   this.parecordservice.add().pipe(first()).subscribe(
-  //     resp => {
-  //       this.notifService.showNotif(resp, 'response');
-  //       this.parecords = null;
-  //       this.loadAllPArecords();
-  //       }, error => {
-  //       this.notifService.showNotif(error); });
-  // }
-
-  // deletePARecord(date) {
-  //   // this.userService.deleteActivity(date);
-  //   this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
-  //                                                                      this.loadAllPArecords();
-  //   });
-  // }
-=======
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
       this.allPlaces = places
       this.reviewService.places = places
     });
   }
->>>>>>> 0e102ae0fabd05c5188d8d072684d04f5a305d4f
 
   navToCreate() {
     this.router.navigate(["/create"]);
   }
 }
+
