@@ -1,9 +1,15 @@
 <mat-toolbar *ngIf="isUser">
     <mat-toolbar>
         <mat-toolbar-row>
+
+
             <div class="circle" [ngStyle]="{ 'background-color': circleColor }">{{initials}}</div>
 
             <span class="flexExpand"></span>
+            <div>
+            <button mat-button routerLink="/">Home</button>
+            </div>
+
             <div>
                 <button mat-button (click)="logout()">Logout </button>
             </div>

@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   homeUser: User;
 
   query: string;
-  SearchControl = new FormControl({disabled: false});
+  SearchControl = new FormControl({value: "", disabled: false});
 
   filteredOptions: Observable<string[]>;
   allPlaces: string[];
