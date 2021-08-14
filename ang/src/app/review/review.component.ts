@@ -11,9 +11,11 @@ export class ReviewComponent implements OnInit {
 
   constructor() { }
 
-  description = 'This is a sample description. '
+  description = 'This is a sample description. ';
+  date = '8/13/2021';
   editable = false;
   currentRating = 0;
+  
   rating = [
     {
       id: 1,
