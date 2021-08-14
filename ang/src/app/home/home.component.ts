@@ -14,9 +14,6 @@ import { ReviewService } from "../_services/review.service";
 import {from} from "rxjs";
 
 
-@Component({ templateUrl: 'home.component.html' ,
-            styleUrls: ['home.component.css']})
-
 @Component({
   templateUrl: "home.component.html",
 
@@ -27,8 +24,9 @@ import {from} from "rxjs";
 export class HomeComponent implements OnInit {
   homeUser: User;
 
+  query: string;
+  SearchControl = new FormControl({disabled: false});
 
-  myControl = new FormControl();
   filteredOptions: Observable<string[]>;
   allPlaces: string[];
   autoCompleteList: any[];
@@ -37,8 +35,48 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService,
-    private reviewService: ReviewService 
+    private reviewService: ReviewService
   ) {}
+
+  search(query: string){
+
+
+  }
+
+  //    TODO add searching functionality
+
+  // loadAllPArecords() {
+  //   console.log('loadAllParecords()');
+
+  //   this.parecordservice.getAll().subscribe(
+  //        parecords => {
+  //          this.parecords = parecords;
+  //          // this.homeUser = this.parecords[0].createdBy;
+  //        },
+  //       error => {
+  //           this.notifService.showNotif(error.toString(), 'warning'); });
+  // }
+
+  /**
+   * dont need this anymore,
+   * middleware for using random activity addition
+   */
+  // createPARecord() {
+  //   this.parecordservice.add().pipe(first()).subscribe(
+  //     resp => {
+  //       this.notifService.showNotif(resp, 'response');
+  //       this.parecords = null;
+  //       this.loadAllPArecords();
+  //       }, error => {
+  //       this.notifService.showNotif(error); });
+  // }
+
+  // deletePARecord(date) {
+  //   // this.userService.deleteActivity(date);
+  //   this.parecordservice.delete(date).pipe(first()).subscribe( () => { this.parecords = null;
+  //                                                                      this.loadAllPArecords();
+  //   });
+  // }
 
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
