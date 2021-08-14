@@ -9,24 +9,13 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ReviewService } from "../_services/review.service";
 
-
-
-import {from} from "rxjs";
-
-
-@Component({
-  templateUrl: "home.component.html",
-
-  styleUrls: ["home.component.css"],
-})
-
+@Component({ templateUrl: 'home.component.html' ,
+            styleUrls: ['home.component.css']})
 
 export class HomeComponent implements OnInit {
+
   homeUser: User;
-
-  query: string;
-  SearchControl = new FormControl({disabled: false});
-
+  myControl = new FormControl();
   filteredOptions: Observable<string[]>;
   allPlaces: string[];
   autoCompleteList: any[];
@@ -35,13 +24,11 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService,
-    private reviewService: ReviewService
-  ) {}
+    private reviewService: ReviewService) {}
 
-  search(query: string){
-
-
+  search(query: string) {
   }
+
 
   //    TODO add searching functionality
 
@@ -77,16 +64,14 @@ export class HomeComponent implements OnInit {
   //                                                                      this.loadAllPArecords();
   //   });
   // }
-
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
-      this.allPlaces = places
-      this.reviewService.places = places
+      this.allPlaces = places;
+      this.reviewService.places = places;
     });
   }
 
   navToCreate() {
-    this.router.navigate(["/create"]);
+    this.router.navigate(['/create']);
   }
 }
-

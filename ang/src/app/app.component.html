@@ -1,15 +1,7 @@
-<body>
-    <mat-toolbar *ngIf="isUser">
+<mat-toolbar *ngIf="isUser">
+    <mat-toolbar>
         <mat-toolbar-row>
-
-
-            <div class="circle" [ngStyle]="{ 'background-color': circleColor }">
-                <div class="initials">
-                    {{getInitials}}
-                </div>
-            </div>
-
-            <button mat-button (click)="goToHome()">My Reviews </button>
+            <div class="circle" [ngStyle]="{ 'background-color': circleColor }">{{initials}}</div>
 
             <span class="flexExpand"></span>
             <div>
@@ -17,10 +9,5 @@
             </div>
         </mat-toolbar-row>
     </mat-toolbar>
-
-
-    <router-outlet>
-
-
-    </router-outlet>
-</body>
+</mat-toolbar>
+<router-outlet></router-outlet>
