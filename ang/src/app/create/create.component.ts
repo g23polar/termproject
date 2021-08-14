@@ -7,7 +7,7 @@ import {first} from 'rxjs/operators';
 import {User} from '../_models/user';
 
 import {AuthService} from '../_services/auth.service';
-import {MatSliderChange} from '@angular/material/slider';
+import { ReviewService } from '../_services/review.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -26,6 +26,8 @@ export class CreateComponent implements OnInit {
 
   description: string;
   location: string; 
+
+  locationCntrl = new FormControl({disabled: false});
   
 
   edit: boolean;
@@ -72,7 +74,8 @@ export class CreateComponent implements OnInit {
   constructor(private authService: AuthService,
               private notifService: NotificationService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private reviewService: ReviewService) { }
 
   ngOnInit() {
     this.edit = false;
@@ -82,17 +85,34 @@ export class CreateComponent implements OnInit {
    
 
     if (this.route.snapshot.paramMap.get("date") != null) {
-      //{ new Date(this.route.snapshot.paramMap.get("date")),
-      // disabled: true }
       this.edit = true;
-      
-      
+      this.locationCntrl = new FormControl({disabled: true});
     }
 
   }
 
   save() {
-    this.router.navigate(['/']);
+    // this.reviewService
+    //   .add({
+        
+    //     createdDate: new Date();
+    //   })
+    //   .pipe(first())
+    //   .subscribe(
+    //     () => {
+    //       if (this.edit) {
+    //         this.notifService.showNotif("Update Saved", "OK");
+    //       } else {
+    //         this.notifService.showNotif("Review added", "OK");
+    //       }
+    //     },
+    //     (error) => {
+    //       this.notifService.showNotif(error);
+    //     }
+    //   );
+    
+    //   //TODO: 
+    // this.router.navigate(["/"]);
   }
 
   newDate(e) {
