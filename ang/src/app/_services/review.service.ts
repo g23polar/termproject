@@ -13,7 +13,7 @@ export class ReviewService {
   public places: string[];
 
   getAll() {
-    return this.http.get<Review[]>(`http://localhost:3030/review/getreview`);
+    return this.http.get<Review[]>(`http://localhost:3030/review/getreviews`);
   }
 
   getPlaces() {

@@ -19,13 +19,7 @@ export class ReviewlistComponent implements OnInit {
               private notifService: NotificationService) { }
 
   ngOnInit(): void {
-    // this.loadAllReviews();
-    this.reviews[0] =   {
-      description: 'string',
-    location: 'Blacksburg',
-    rating: 4,
-    createdDate: new Date(),
-    createdBy: null };
+    this.loadAllReviews();
   }
 
   private loadAllReviews() {

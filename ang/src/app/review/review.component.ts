@@ -16,8 +16,6 @@ export class ReviewComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  description = 'This is a sample description. ';
-  date = '8/13/2021';
   editable = false;
   currentRating = 0;
   initials;
@@ -30,14 +28,15 @@ export class ReviewComponent implements OnInit {
     {id: 5, color: 'gray'}
   ];
   ngOnInit(): void {
-    this.review = new Review();
-    this.review.description = 'This is a sample description. ';
-    this.review.createdDate = new Date();
-    this.review.location = 'Blacksburg';
-    this.authService.currentUser.subscribe(user => {
-      this.review.createdBy = user;
-      this.initials = (user.firstName[0] + user.lastName[0]).toUpperCase();
-    } );
+    this.selectRating(this.review.rating);
+    // this.review = new Review();
+    // this.review.description = 'This is a sample description. ';
+    // this.review.createdDate = new Date();
+    // this.review.location = 'Blacksburg';
+    // this.authService.currentUser.subscribe(user => {
+    //   this.review.createdBy = user;
+    //   this.initials = (user.firstName[0] + user.lastName[0]).toUpperCase();
+    // } );
   }
 
   delete(date) {
@@ -49,7 +48,6 @@ export class ReviewComponent implements OnInit {
   }
 
   selectRating(value) {
-    console.log('selectRating', value);
     this.rating.filter((star) => {
       if (star.id <= value) {
         star.color = 'orange';
