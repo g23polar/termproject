@@ -8,6 +8,8 @@ import {RegisterComponent} from './register/register.component';
 import {Role} from './_models/role';
 import {CreateComponent} from './create/create.component';
 import {ReviewComponent} from './review/review.component';
+import {MyReviewsComponent} from './my-reviews/my-reviews.component';
+import {ReviewlistComponent} from './reviewlist/reviewlist.component';
 
 // TODOc: add the route to the 'settings' component.
 
@@ -15,6 +17,8 @@ const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthG
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.admin]}},
   {path: 'create', component: CreateComponent},
   {path: 'review', component: ReviewComponent},
+  {path: 'viewReviews', component: ReviewlistComponent},
+  {path: 'myReviews', component: MyReviewsComponent},
   {path: '**', redirectTo: '' }];
 
 @NgModule({

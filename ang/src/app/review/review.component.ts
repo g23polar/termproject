@@ -1,15 +1,19 @@
 // TODO : add, delete
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, EventEmitter, OnInit, Output} from '@angular/core';
 import {Review} from '../_models/Review';
 import {AuthService} from '../_services/auth.service';
 
 @Component({
-  selector: 'app-review',
+  // tslint:disable-next-line:component-selector
+  selector: 'review-component',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
   @Input() review: Review;
+  @Output() deleteEvent = new EventEmitter<Date>();
+
+
   constructor(private authService: AuthService) { }
 
   description = 'This is a sample description. ';
@@ -19,26 +23,11 @@ export class ReviewComponent implements OnInit {
   initials;
 
   rating = [
-    {
-      id: 1,
-      color: 'gray'
-    },
-    {
-      id: 2,
-      color: 'gray'
-    },
-    {
-      id: 3,
-      color: 'gray'
-    },
-    {
-      id: 4,
-      color: 'gray'
-    },
-    {
-      id: 5,
-      color: 'gray'
-    }
+    {id: 1, color: 'gray'},
+    {id: 2, color: 'gray'},
+    {id: 3, color: 'gray'},
+    {id: 4, color: 'gray'},
+    {id: 5, color: 'gray'}
   ];
   ngOnInit(): void {
     this.review = new Review();
@@ -51,8 +40,8 @@ export class ReviewComponent implements OnInit {
     } );
   }
 
-  delete() {
-
+  delete(date) {
+    this.deleteEvent.emit(date);
   }
 
   toggleEdit() {
@@ -62,7 +51,6 @@ export class ReviewComponent implements OnInit {
   selectRating(value) {
     console.log('selectRating', value);
     this.rating.filter((star) => {
-      console.log('star', star.id, star.color);
       if (star.id <= value) {
         star.color = 'orange';
       } else {

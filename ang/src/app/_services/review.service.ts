@@ -6,9 +6,6 @@ import { HttpClient } from '@angular/common/http';
 import {AuthService} from './auth.service';
 import {Review} from '../_models/Review';
 
-
-
-
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
   constructor(private http: HttpClient, private auth: AuthService) { }
