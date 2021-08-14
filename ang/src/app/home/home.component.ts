@@ -9,7 +9,6 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ReviewService } from "../_services/review.service";
 
-<<<<<<< HEAD
 
 
 import {from} from "rxjs";
@@ -22,15 +21,13 @@ import {Review} from "../_models/Review";
   styleUrls: ["home.component.css"],
 })
 
-=======
-@Component({ templateUrl: 'home.component.html' ,
-            styleUrls: ['home.component.css']})
->>>>>>> 2aaeb04b9b876d2e3b779349578a9ab005cd7955
 
 export class HomeComponent implements OnInit {
-
   homeUser: User;
-  myControl = new FormControl();
+
+  query: string;
+  SearchControl = new FormControl({disabled: false});
+
   filteredOptions: Observable<string[]>;
   allPlaces: string[];
   autoCompleteList: any[];
@@ -39,7 +36,6 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService,
-<<<<<<< HEAD
     private reviewService: ReviewService
   ) {}
 
@@ -56,16 +52,6 @@ export class HomeComponent implements OnInit {
     // }
   }
 
-=======
-    private reviewService: ReviewService) {}
-
-  search(query: string) {
-  }
-
-
-  //    TODO add searching functionality
-
->>>>>>> 2aaeb04b9b876d2e3b779349578a9ab005cd7955
   // loadAllPArecords() {
   //   console.log('loadAllParecords()');
 
@@ -98,18 +84,15 @@ export class HomeComponent implements OnInit {
   //                                                                      this.loadAllPArecords();
   //   });
   // }
+
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
       this.allPlaces = places;
-<<<<<<< HEAD
       this.reviewService.places = places
-=======
-      this.reviewService.places = places;
->>>>>>> 2aaeb04b9b876d2e3b779349578a9ab005cd7955
     });
   }
 
   navToCreate() {
-    this.router.navigate(['/create']);
+    this.router.navigate(["/create"]);
   }
 }
