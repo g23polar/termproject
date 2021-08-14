@@ -1,7 +1,7 @@
 <!--TODO add values from backend-->
 <mat-card class="review-card">
 
-  <div class="avatar"></div>
+  <div class="avatar" [ngStyle]="{ 'background-color': 'gray' }">{{initials}}</div>
   <div class="header">
   <div class="username"><b>{{review.createdBy.username}}</b></div>
   <div class="location">{{review.location}}</div>

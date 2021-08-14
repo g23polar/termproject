@@ -17,11 +17,7 @@
     <button mat-button (click)="logout()">Logout </button>
 <mat-toolbar>
     <mat-toolbar-row>
-        <div class="circle" [ngStyle]="{ 'background-color': circleColor }">
-            <div class="initials">
-                {{getInitials}}
-            </div>
-        </div>
+        <div class="circle" [ngStyle]="{ 'background-color': circleColor }">{{initials}}</div>
 
         <span class="flexExpand"></span>
         <div>
