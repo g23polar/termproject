@@ -14,7 +14,8 @@ const jwt = require('./_helpers/jwt');
 
 // Our error handler
 const errorHandler = require('./_helpers/error-handler');
-
+// app.use('/', express(path.join(__dirname+'../../ang/dist/HW2')));
+app.use('/',express.static(path.join(__dirname+'../../ang/dist/HW2')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -22,7 +23,6 @@ app.use(cors());
 app.use(jwt());
 
 
-app.use('/',express.static(path.join(__dirname+'../../ang/dist/HW2/')));
 
 app.use('/user', require('./routes/user.router'));
 app.use('/review', require('./routes/review.router'));
