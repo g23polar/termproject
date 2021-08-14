@@ -25,7 +25,6 @@ export class AppComponent {
       this.currentUser = x;
       this.circleColor = '#707070';
       this.initials = (this.currentUser.firstName[0] + this.currentUser.lastName[0]).toUpperCase();
-      console.log('initials', this.initials);
     });
 
 
@@ -44,8 +43,8 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
-  goToHome() {
-    this.router.navigate(['']);
+  goToMyReviews() {
+    this.router.navigate(['/myReviews']);
   }
 
 

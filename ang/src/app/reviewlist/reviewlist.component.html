@@ -1,0 +1,7 @@
+<div class="review-list">
+  <strong class="location">Reviews for {{location}}</strong>
+
+  <review-component class="review-item" *ngFor="let review of reviews"
+                      [review]="review"
+                      (deleteEvent) = "deleteReview($event)"></review-component>
+</div>

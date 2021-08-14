@@ -13,10 +13,11 @@ import { RegisterComponent } from './register/register.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './interceptors/error.interceptor';
-import {AvatarModule} from "ngx-avatar";
 import { CreateComponent } from './create/create.component';
 import { ReviewComponent } from './review/review.component';
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from './home/home.component';
+import { ReviewlistComponent } from './reviewlist/reviewlist.component';
+import { MyReviewsComponent } from './my-reviews/my-reviews.component';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import {HomeComponent} from "./home/home.component";
     RegisterComponent,
     CreateComponent,
     CreateComponent,
-    ReviewComponent
+    ReviewComponent,
+    ReviewlistComponent,
+    MyReviewsComponent
   ],
     imports: [
         BrowserModule,
@@ -39,7 +42,6 @@ import {HomeComponent} from "./home/home.component";
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AvatarModule
     ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
