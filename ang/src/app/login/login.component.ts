@@ -62,8 +62,6 @@ export class LoginComponent {
   }
 
   register() {
-
-    this.notif.notImplementedWarning('Registration', 500);
   }
 }
 

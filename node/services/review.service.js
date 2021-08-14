@@ -1,16 +1,15 @@
 //TODO 1/2
 
-const db = require('../_helpers/database');
+const e = require("express");
+const db = require("../_helpers/database");
 const Review = db.Review;
 const par = db.PArecord;
-
 
 module.exports = {
     getAllReviews,
     addReview,
-    deleteReview
-}
-
+    deleteReview,
+};
 
 /**
  * TODOc: write the necessary functions that will address the needs of parecord.controller.
@@ -20,26 +19,48 @@ module.exports = {
  */
 
 async function getAllReviews() {
-    return Review.find().populate({ path: 'createdBy', select: 'username' });
+    return Review.find().populate({ path: "createdBy", select: "username" });
 }
 
 async function deleteReview(username, date) {
-    return Review.deleteOne({ "createdDate": date, "createdBy": username });
+    return Review.deleteOne({ createdDate: date, createdBy: username });
 }
 
 async function addReview(review, username) {
-    if (!username) {
-        throw 'Error with the user submitting the request. User information missing. Malformed request.';
+    console.log(review.createdDate);
+    if (
+        await Review.findOne({
+            createdBy: username,
+            description: review.description,
+            location: review.location
+        })
+    ) {
+
+        const query = {
+            createdBy: username,
+            description: review.description,
+            location: review.location
+        };
+
+        newReview = review
+
+        newReview.createdDate = new Date();
+
+        await Review.findOneAndUpdate(query, newReview);
+    } else {
+
+        let newreview = review;
+        newreview.createdBy = username;
+        newreview.createdDate = new Date();
+
+        dbrecord = new Review(newreview);
+
+        // save the record
+        await dbrecord.save();
     }
-    //populate missing fields in the parecord object
-    let newreview = review;
-    review.createdBy = username;
-    // review.createdDate = new Date();
 
-    dbrecord = new Review(newreview);
-
-
-    // save the record
-    await dbrecord.save();
+    if (!username) {
+        throw "Error with the user submitting the request. User information missing. Malformed request.";
+    }
 
 }

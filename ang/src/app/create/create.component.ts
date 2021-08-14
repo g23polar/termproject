@@ -80,17 +80,18 @@ export class CreateComponent implements OnInit {
     this.authService.currentUser.pipe(first()).subscribe((user) => {
       this.user = user;
     });
+    this.date = new Date();
+    this.edit = false;
 
     if (this.route.snapshot.paramMap.get("createdDate") != null) {
       this.edit = true;
       this.locationCntrl = new FormControl({value: this.route.snapshot.paramMap.get("location"), disabled: true});
       
-      this.date = new Date(this.route.snapshot.paramMap.get("date"));
+      
       this.description = this.route.snapshot.paramMap.get("description");
       this.location = this.route.snapshot.paramMap.get("location");
       this.selectRating(this.route.snapshot.paramMap.get("rating"));
-
-      
+      this.edit = true;
     }
   }
 

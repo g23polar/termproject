@@ -9,6 +9,6 @@ const authorize = require('../_helpers/authorize');
 
 router.post('/addreview', reviewController.createReview);
 router.get('/getreviews', reviewController.getReviews);
-router.delete('/:date', authorize(Role.admin), reviewController.deleteReview);
+router.delete('/:date', reviewController.deleteReview);
 
 module.exports = router;
