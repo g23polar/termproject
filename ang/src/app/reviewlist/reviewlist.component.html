@@ -10,7 +10,7 @@
       <mat-option value="Least Recent">Least Recent</mat-option>
     </mat-select>
   </mat-form-field>
-  
+
   <review-component class="review-item" *ngFor="let review of reviews"
                       [review]="review"
                       (deleteEvent) = "deleteReview($event)"></review-component>
