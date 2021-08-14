@@ -1,12 +1,19 @@
-<div class="pa-record-container">
+<!--TODO-->
 
-    <!--  TODO add searchbar-->
-    <!--  TODO change parecords to reviews-->
-    <!-- <parecord-component class="card-item" *ngFor="let parecord of parecords" [parecord]="parecord" (deleteEvent) = "deletePARecord($event)"></parecord-component> -->
+<div class="search">
 
-    <!--<div *ngFor="let parecord of parecords">{{parecord}}</div>-->
+  <mat-card class="card">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput value="{{query}}" (input)="search(query)" [formControl]="SearchControl">
+    </mat-form-field>
 
 
+    <!--    save button -->
+    <button mat-flat-button class="button" (click)="search('sample')">Save</button>
+
+  </mat-card>
 </div>
 
 

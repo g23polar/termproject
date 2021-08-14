@@ -13,10 +13,6 @@ import { ReviewService } from "../_services/review.service";
 
 import {from} from "rxjs";
 
-import {ReviewService} from "../_services/review.service";
-
-@Component({ templateUrl: 'home.component.html' ,
-            styleUrls: ['home.component.css']})
 
 @Component({
   templateUrl: "home.component.html",
@@ -28,8 +24,9 @@ import {ReviewService} from "../_services/review.service";
 export class HomeComponent implements OnInit {
   homeUser: User;
 
+  query: string;
+  SearchControl = new FormControl({disabled: false});
 
-  myControl = new FormControl();
   filteredOptions: Observable<string[]>;
   allPlaces: string[];
   autoCompleteList: any[];
@@ -38,17 +35,13 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private notifService: NotificationService,
     private userService: UserService,
-<<<<<<< HEAD
     private reviewService: ReviewService
-=======
-    private reviewService: ReviewService 
->>>>>>> 0e102ae0fabd05c5188d8d072684d04f5a305d4f
   ) {}
+
   search(query: string){
 
-<<<<<<< HEAD
+
   }
-  ngOnInit() {}
 
   //    TODO add searching functionality
 
@@ -84,14 +77,14 @@ export class HomeComponent implements OnInit {
   //                                                                      this.loadAllPArecords();
   //   });
   // }
-=======
+
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
       this.allPlaces = places
       this.reviewService.places = places
     });
   }
->>>>>>> 0e102ae0fabd05c5188d8d072684d04f5a305d4f
+
 
   navToCreate() {
     this.router.navigate(["/create"]);
