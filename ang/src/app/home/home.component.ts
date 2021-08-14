@@ -85,8 +85,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   navToCreate() {
     this.router.navigate(["/create"]);
   }
 }
+

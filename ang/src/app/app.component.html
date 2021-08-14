@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="isUser">
     <mat-toolbar-row>
 
 
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-      <button mat-button (click)="goToHome()">My Reviews </button>
+        <button mat-button (click)="goToHome()">My Reviews </button>
 
         <span class="flexExpand"></span>
         <div>
@@ -22,4 +22,3 @@
 
 
 </router-outlet>
-
