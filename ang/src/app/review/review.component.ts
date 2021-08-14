@@ -1,5 +1,8 @@
 // TODO : add, delete
 import {Component, Input, OnInit} from '@angular/core';
+import {Review} from '../_models/Review';
+import {User} from '../_models/user';
+import {AuthService} from '../_services/auth.service';
 
 @Component({
   selector: 'app-review',
@@ -7,15 +10,12 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  // @Input() parecord: PARecord;
+  @Input() review: Review;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  description = 'This is a sample description. ';
-  date = '8/13/2021';
   editable = false;
-  currentRating = 0;
-  
+
   rating = [
     {
       id: 1,
@@ -39,6 +39,11 @@ export class ReviewComponent implements OnInit {
     }
   ];
   ngOnInit(): void {
+    this.review = new Review();
+    this.review.description = 'This is a sample description. ';
+    this.review.createdDate = new Date();
+    this.review.location = 'Blacksburg';
+    this.authService.currentUser.subscribe(user => { this.review.createdBy = user; } );
   }
 
   delete() {
@@ -60,6 +65,6 @@ export class ReviewComponent implements OnInit {
       }
       return star;
     });
-    this.currentRating = value;
+    this.review.rating = value;
   }
 }

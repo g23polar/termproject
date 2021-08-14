@@ -1,8 +1,4 @@
 <mat-toolbar *ngIf="isUser">
-    <!-- TODO: Get first and last initials -->
-      <ngx-avatar> value={{first}} [round]="true">
-      </ngx-avatar>
-
 <!--  <ngx-avatar> value="GN" [round]="true">-->
 <!--  </ngx-avatar>-->
   <button mat-button (click)="goToHome()">My Reviews </button>
@@ -33,14 +29,5 @@
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
-<router-outlet>
-
-<<<<<<< HEAD
-<!--<body *ngIf="isUser" style="background-color:darkcyan;">-->
-
-
-
+</mat-toolbar>
 <router-outlet></router-outlet>
-
-</router-outlet>
-
