@@ -12,7 +12,7 @@ import {User} from '../_models/user';
 })
 export class ReviewlistComponent implements OnInit {
 
-  location = 'Blacksburg'; // TODO get location
+  location = ''; // TODO get location
   reviews: Review[];
   sortTypes: ['Highest Rating', 'Lowest Rating', 'Most Recent', 'Least Recent'];
   sortType;
@@ -22,7 +22,9 @@ export class ReviewlistComponent implements OnInit {
               private notifService: NotificationService) { }
 
   ngOnInit(): void {
-    this.loadAllReviews();
+    // this.loadAllReviews();
+    this.reviews = this.reviewService.reviews;
+    this.location = this.reviews[0].location;
   }
 
   private loadAllReviews() {

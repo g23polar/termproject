@@ -11,6 +11,7 @@ export class ReviewService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   public places: string[];
+  public reviews: Review[];
 
   getAll() {
     return this.http.get<Review[]>(`http://localhost:3030/review/getreviews`);

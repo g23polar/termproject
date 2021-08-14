@@ -6,13 +6,13 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Location</mat-label>
-            <input (keyup.enter)="search(query)" matInput value="{{query}}" [formControl]="SearchControl">
+            <input (keyup.enter)="search($event)" matInput value="{{query}}" [formControl]="SearchControl">
             <!--             (input)="search(query)">-->
         </mat-form-field>
 
         <!--    search button -->
         <!--    <button mat-flat-button class="button" (click)="search(query)" routerLink="/viewReviews">Search</button>-->
-        <button mdbBtn (keyup.enter)="search(query)" color="deep-purple" size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit" (click)="search(query)">Search</button>
+        <button mdbBtn (keyup.enter)="search($event)" color="deep-purple" size="sm" gradient="aqua" rounded="true" class="my-0 waves-light" mdbWavesEffect type="submit" (click)="search(query)">Search</button>
 
 
     </mat-card>

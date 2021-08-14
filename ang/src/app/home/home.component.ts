@@ -10,6 +10,7 @@ import { ReviewService } from "../_services/review.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 
+
 import {from} from "rxjs";
 import {Review} from "../_models/Review";
 
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
   SearchControl = new FormControl({value: "", disabled: false});
 
   filteredOptions: Observable<string[]>;
-  allPlaces: string[];
+  allPlaces: Review[];
   autoCompleteList: any[];
 
   constructor(
@@ -38,15 +39,19 @@ export class HomeComponent implements OnInit {
     private reviewService: ReviewService
   ) {}
 
-  search(query: string){
-    this.reviewService.getPlaces().subscribe(
+  search(query){
+    this.reviewService.getAll().subscribe(
       reviews => {
-        this.allPlaces = reviews.filter(review => review === query);
+        this.allPlaces = reviews.filter(myre => { 
+         return myre.location === query.target.value;
+        } );
+        
+        this.reviewService.reviews = this.allPlaces;
+        
         this.router.navigate(['/viewReviews']);
       },
       error => {
-        this.router.navigate(['/viewReviews']);
-        this.notifService.showNotif(error.toString(), 'error, home comp ts'); });
+        this.notifService.showNotif(error.toString(), 'Not found, ok'); });
 
     // if(!found){
     //   this.notifService.showNotif('There are no reviews for this location yet!');
@@ -87,9 +92,8 @@ export class HomeComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.reviewService.getPlaces().subscribe(places => {
+    this.reviewService.getAll().subscribe(places => {
       this.allPlaces = places;
-      this.reviewService.places = places
     });
   }
 
