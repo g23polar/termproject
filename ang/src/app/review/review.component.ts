@@ -2,6 +2,12 @@
 import {Component, Input, EventEmitter, OnInit, Output} from '@angular/core';
 import {Review} from '../_models/Review';
 import {AuthService} from '../_services/auth.service';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from "@angular/router";
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -14,7 +20,8 @@ export class ReviewComponent implements OnInit {
   @Output() deleteEvent = new EventEmitter<Date>();
 
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   editable = false;
   currentRating = 0;
@@ -39,8 +46,8 @@ export class ReviewComponent implements OnInit {
     this.deleteEvent.emit(date);
   }
 
-  toggleEdit() {
-    this.editable = !this.editable;
+  toggleEdit(review) {
+    this.router.navigate(["/create", review]);
   }
 
   selectRating(value) {

@@ -1,38 +1,37 @@
 <!--TODO add values from backend-->
 <mat-card class="review-card">
 
-  <div class="avatar" [ngStyle]="{ 'background-color': 'gray' }">{{initials}}</div>
-  <div class="header">
-  <div class="username"><b>{{review.createdBy.username}}</b></div>
-  <div class="location">{{review.location}}</div>
-  </div>
-
-  <div class="rating">
-    <div *ngFor="let star of rating"
-    (click)="selectRating(star.id)">
-      <mat-icon [ngStyle]="{'color':star.color}">star</mat-icon>
+    <div class="avatar" [ngStyle]="{ 'background-color': 'gray' }">{{initials}}</div>
+    <div class="header">
+        <div class="username"><b>{{review.createdBy.username}}</b></div>
+        <div class="location">{{review.location}}</div>
     </div>
-  </div>
 
-  <div class="date">{{review.createdDate | date}}</div>
+    <div class="rating">
+        <div *ngFor="let star of rating" (click)="selectRating(star.id)">
+            <mat-icon [ngStyle]="{'color':star.color}">star</mat-icon>
+        </div>
+    </div>
 
-  <div class="review"> {{review.description}}</div>
+    <div class="date">{{review.createdDate | date}}</div>
 
-  <div class="menu">
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+    <div class="review"> {{review.description}}</div>
+
+    <div class="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Delete or edit">
       <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="toggleEdit()">
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="toggleEdit(review)">
         <mat-icon>edit</mat-icon>
         <span>Edit</span>
       </button>
-<!--      TODO: delete-->
-      <button mat-menu-item (click)="delete(review.createdDate)">
+            <!--      TODO: delete-->
+            <button mat-menu-item (click)="delete(review.createdDate)">
         <mat-icon>delete</mat-icon>
         <span>Delete</span>
       </button>
-    </mat-menu>
+        </mat-menu>
 
-  </div>
+    </div>
 </mat-card>

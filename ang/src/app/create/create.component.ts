@@ -81,9 +81,16 @@ export class CreateComponent implements OnInit {
       this.user = user;
     });
 
-    if (this.route.snapshot.paramMap.get("date") != null) {
+    if (this.route.snapshot.paramMap.get("createdDate") != null) {
       this.edit = true;
-      this.locationCntrl = new FormControl({value: '', disabled: true});
+      this.locationCntrl = new FormControl({value: this.route.snapshot.paramMap.get("location"), disabled: true});
+      
+      this.date = new Date(this.route.snapshot.paramMap.get("date"));
+      this.description = this.route.snapshot.paramMap.get("description");
+      this.location = this.route.snapshot.paramMap.get("location");
+      this.selectRating(this.route.snapshot.paramMap.get("rating"));
+
+      
     }
   }
 

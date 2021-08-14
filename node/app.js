@@ -14,8 +14,8 @@ const jwt = require('./_helpers/jwt');
 
 // Our error handler
 const errorHandler = require('./_helpers/error-handler');
-// app.use('/', express(path.join(__dirname+'../../ang/dist/HW2')));
-app.use('/',express.static(path.join(__dirname+'../../ang/dist/HW2')));
+
+// app.use('/',express.static(path.join(__dirname+'../../ang/dist/HW2')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -34,6 +34,3 @@ const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
 });
-
-
-

@@ -34,7 +34,7 @@ async function addReview(review, username) {
     //populate missing fields in the parecord object
     let newreview = review;
     review.createdBy = username;
-    review.createdDate = new Date();
+    // review.createdDate = new Date();
 
     dbrecord = new Review(newreview);
 
