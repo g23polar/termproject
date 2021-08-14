@@ -21,15 +21,19 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(jwt());
 
+
+app.use('/',express.static(path.join(__dirname+'../../ang/dist/HW2/')));
+
 app.use('/user', require('./routes/user.router'));
 app.use('/review', require('./routes/review.router'));
 app.use(errorHandler);
 
-
-app.use('/',express.static(path.join(__dirname+'../dist/HW2/')));
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3030;
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
 });
+
+
+
