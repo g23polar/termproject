@@ -12,6 +12,7 @@ import { ReviewService } from "../_services/review.service";
 
 
 import {from} from "rxjs";
+import {Review} from "../_models/Review";
 
 
 @Component({
@@ -39,11 +40,17 @@ export class HomeComponent implements OnInit {
   ) {}
 
   search(query: string){
+    this.reviewService.getPlaces().subscribe(
+      reviews => {
+        this.allPlaces = reviews.filter(review => review === query);
+      },
+      error => {
+        this.notifService.showNotif(error.toString(), 'error, home comp ts'); });
 
-
+    // if(!found){
+    //   this.notifService.showNotif('There are no reviews for this location yet!');
+    // }
   }
-
-  //    TODO add searching functionality
 
   // loadAllPArecords() {
   //   console.log('loadAllParecords()');
@@ -80,7 +87,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.reviewService.getPlaces().subscribe(places => {
-      this.allPlaces = places
+      this.allPlaces = places;
       this.reviewService.places = places
     });
   }
