@@ -10,8 +10,11 @@ export class ReviewComponent implements OnInit {
 
   constructor() { }
 
+  description = 'This is a sample description. ';
+  date = '8/13/2021';
   editable = false;
   currentRating = 0;
+  
   rating = [
     {
       id: 1,
@@ -44,6 +47,7 @@ export class ReviewComponent implements OnInit {
   toggleEdit() {
     this.editable = !this.editable;
   }
+
   selectRating(value) {
     console.log('selectRating', value);
     this.rating.filter((star) => {
