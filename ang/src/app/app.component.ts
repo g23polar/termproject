@@ -30,12 +30,6 @@ export class AppComponent{
 
     });
 
-    // this.first = this.currentUser.firstname;
-
-    // console.log(this.currentUser);
-    // console.log("HERE");
-    // this.first = this.currentUser.firstname[0];
-    // this.last = this.currentUser.lastname[0];
 
   }
 

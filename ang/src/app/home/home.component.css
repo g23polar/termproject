@@ -9,3 +9,9 @@
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+.but{
+  position: fixed;
+  bottom: 15%;
+  right: 15%;
+}
