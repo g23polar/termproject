@@ -7,7 +7,6 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  // @Input() parecord: PARecord;
 
   constructor() { }
 
