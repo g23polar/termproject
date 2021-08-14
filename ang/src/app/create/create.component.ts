@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
   description: string;
   location: string;
 
-  locationCntrl = new FormControl({ disabled: false });
+  locationCntrl = new FormControl({value: '', disabled: false});
 
   edit: boolean;
 
@@ -83,7 +83,7 @@ export class CreateComponent implements OnInit {
 
     if (this.route.snapshot.paramMap.get("date") != null) {
       this.edit = true;
-      this.locationCntrl = new FormControl({ disabled: true });
+      this.locationCntrl = new FormControl({value: '', disabled: true});
     }
   }
 

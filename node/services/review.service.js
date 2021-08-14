@@ -28,15 +28,13 @@ async function deleteReview(username, date) {
 }
 
 async function addReview(review, username) {
-    // validate
-    if (await Review.findOne({ createdBy: username, createdDate: review.createdDate })) {
-        throw 'Review created by"' + review.createdBy + " on " + review.createdDate + '" already exists';
-    } else if (!username) {
+    if (!username) {
         throw 'Error with the user submitting the request. User information missing. Malformed request.';
     }
     //populate missing fields in the parecord object
     let newreview = review;
     review.createdBy = username;
+    review.createdDate = new Date();
 
     dbrecord = new Review(newreview);
 

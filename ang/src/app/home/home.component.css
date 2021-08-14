@@ -1,17 +1,17 @@
 .card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
 }
 
-.but{
-  position: fixed;
-  bottom: 15%;
-  right: 15%;
+.but {
+    position: fixed;
+    bottom: 15%;
+    right: 15%;
 }
