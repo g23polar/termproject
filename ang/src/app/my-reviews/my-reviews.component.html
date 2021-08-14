@@ -1,6 +1,16 @@
 <div class="review-list">
   <strong class="my-reviews">My reviews</strong>
 
+  <mat-form-field class="sort-type">
+    <mat-label>Sort Reviews</mat-label>
+    <mat-select [(value)]=sortType (selectionChange)="sort()">
+      <mat-option value="Highest Rating">Highest Rating</mat-option>
+      <mat-option value="Lowest Rating">Lowest Rating</mat-option>
+      <mat-option value="Most Recent">Most Recent</mat-option>
+      <mat-option value="Least Recent">Least Recent</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <review-component class="review-item" *ngFor="let review of reviews"
                     [review]="review"
                     (deleteEvent) = "deleteReview($event)"></review-component>

@@ -15,6 +15,8 @@ export class MyReviewsComponent implements OnInit {
 
   reviews: Review[];
   currUser: User;
+  sortTypes: ['Highest Rating', 'Lowest Rating', 'Most Recent', 'Least Recent'];
+  sortType;
 
   constructor(private reviewService: ReviewService,
               private notifService: NotificationService,
@@ -40,5 +42,44 @@ export class MyReviewsComponent implements OnInit {
       this.reviews = null;
       this.loadAllReviews();
     });
+  }
+
+  sort() {
+    console.log('sort', this.sortType);
+    if (this.sortType === 'Highest Rating') {
+      this.reviews.sort((prev, curr) => {
+        const keyPrev = prev.rating;
+        const keyCurr = curr.rating;
+        if (keyPrev < keyCurr) { return 1; } else if (keyPrev > keyCurr) { return -1; }
+        return 0;
+      });
+    }
+
+    if (this.sortType === 'Lowest Rating') {
+      this.reviews.sort((prev, curr) => {
+        const keyPrev = prev.rating;
+        const keyCurr = curr.rating;
+        if (keyPrev < keyCurr) { return -1; } else if (keyPrev > keyCurr) { return 1; }
+        return 0;
+      });
+    }
+
+    if (this.sortType === 'Most Recent') {
+      this.reviews.sort((prev, curr) => {
+        const keyPrev = prev.createdDate;
+        const keyCurr = curr.createdDate;
+        if (keyPrev < keyCurr) { return 1; } else if (keyPrev > keyCurr) { return -1; }
+        return 0;
+      });
+    }
+
+    if (this.sortType === 'Least Recent') {
+      this.reviews.sort((prev, curr) => {
+        const keyPrev = prev.createdDate;
+        const keyCurr = curr.createdDate;
+        if (keyPrev < keyCurr) { return -1; } else if (keyPrev > keyCurr) { return 1; }
+        return 0;
+      });
+    }
   }
 }
