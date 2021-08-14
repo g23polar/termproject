@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+
 /*CORS stands for Cross Origin Resource Sharing and allows modern web browsers to be able to send AJAX requests and receive HTTP responses for resource from other domains other that the domain serving the client side application.*/
 const cors = require('cors');
 
@@ -24,6 +25,8 @@ app.use('/user', require('./routes/user.router'));
 app.use('/review', require('./routes/review.router'));
 app.use(errorHandler);
 
+
+app.use('/',express.static(path.join(__dirname+'../dist/HW2/')));
 
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 3030;

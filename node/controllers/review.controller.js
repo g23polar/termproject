@@ -9,6 +9,7 @@ module.exports = {
 
 
 function createReview(req, res, next) {
+    console.log(req.body);
     const jwttemp = req.headers["authorization"].split(" ")[1];
     const user = decode(jwttemp)["sub"];
     reviewService.addReview(req.body, user)

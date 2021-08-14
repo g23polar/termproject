@@ -4,8 +4,8 @@ export class User {
   username: string;
   role: Role;
   token?: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   caloriegoal: number;
   minutegoal: number;
 }
